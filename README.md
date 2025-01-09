@@ -1,4 +1,4 @@
-# Eventist: AI Calendar Event Generator
+# Eventist: AI-Generated Calendar Events
 
 **Eventist** is a lightweight web application that converts natural language text into calendar events. Quickly generate `.ics` files for import into your favorite calendar platform.
 
