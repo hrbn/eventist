@@ -8,7 +8,7 @@
 - **Customizable Output**: Review and edit event details before saving.  
 - **ICS File Generation**: Download events as `.ics` files for easy integration with any calendar application.  
 - **Dark Mode**: Adapts to your system's light or dark theme settings.  
-- **Private API Key Usage**: Utilize your personal OpenAI API key, securely stored in your browser's local storage.  
+- **Private API Key Usage**: Use your personal OpenAI API key, securely stored in your browser's local storage.  
 - **Query String Support**: Enables direct searches via query string parameter, making it compatible with tools like LaunchBar, Chrome Omnibox, and similar search utilities.
 
 ## Getting Started
