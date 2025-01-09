@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventist | Calendar Event Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="settings-container">
+        <button onclick="openSettings()" class="settings-button">⚙️ Settings</button>
+      </div>
+      <h1>Eventist</h1>
+      <h2>Calendar Event Generator</h2>
+
+      <div class="form-group">
+        <label for="prompt">Event Description:</label>
+        <textarea id="prompt" rows="4" placeholder="Describe your event in natural language..."></textarea>
+      </div>
+
+      <button onclick="generateEvent()">Generate Event</button>
+
+      <div id="eventDetails">
+        <h2>Event Details</h2>
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="startDate">Start Date & Time:</label>
+          <input type="datetime-local" id="startDate" />
+        </div>
+        <div class="form-group">
+          <label for="endDate">End Date & Time:</label>
+          <input type="datetime-local" id="endDate" />
+        </div>
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" id="location" />
+        </div>
+
+        <button onclick="downloadICS()">Download ICS File</button>
+      </div>
+
+      <div id="error" class="error"></div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+      <div class="modal-content">
+        <h2>Settings</h2>
+        <div class="form-group">
+          <label for="apiKey">OpenAI API Key:</label>
+          <input type="text" id="apiKey" placeholder="Enter your OpenAI API key" />
+        </div>
+        <div class="modal-buttons">
+          <button onclick="saveSettings()" class="save-button">Save</button>
+          <button onclick="closeSettings()" class="cancel-button">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
