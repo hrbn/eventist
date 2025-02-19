@@ -1,9 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   max-width: 800px;
   margin: 20px auto;
   padding: 0 20px;
   line-height: 1.6;
+}
+h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 3rem;
+  margin-bottom: 0;
+  line-height: 1.2;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-top: 0;
+  line-height: 1.2;
 }
 .container {
   background: #f9f9f9;

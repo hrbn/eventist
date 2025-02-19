@@ -51,6 +51,7 @@ async function generateEvent() {
     errorDiv.textContent = '';
 
     try {
+        const now = new Date();
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
             headers: {
@@ -61,7 +62,7 @@ async function generateEvent() {
                 model: "gpt-4o-mini",
                 messages: [{
                     role: "system",
-                    content: "You are a helpful assistant that extracts calendar event details from natural language descriptions. For the response: 1) Convert relative dates (like 'next Tuesday') to actual calendar dates (e.g., '2024-01-23'). 2) For times, use 24-hour format (e.g., '14:00'). 3) Combine date and time into ISO 8601 format (e.g., '2024-01-23T14:00:00Z'). 4) Return a JSON object with: title (string), description (string), startDate (ISO 8601 string), endDate (ISO 8601 string), and location (string). 5) For duration-based events (like '1 hour'), calculate the endDate by adding the duration to startDate. 6) When a due date or deadline is mentioned, use it as the endDate and calculate startDate based on context (default to 23 hours and 59 minutes before if no duration given). Example output: {\"title\": \"Project Deadline\", \"description\": \"Complete Q4 report\", \"startDate\": \"2024-01-23T13:00:00Z\", \"endDate\": \"2024-01-23T14:00:00Z\", \"location\": \"Office\"}"
+                    content: `You are a helpful assistant that extracts calendar event details from natural language descriptions. For the response: 1) Convert relative dates (like 'next Tuesday') to actual calendar dates (e.g., '2024-01-23'). Relative dates should be interpreted based on the current date, which is ${now}. 2) For times, use 24-hour format (e.g., '14:00'). 3) Combine date and time into ISO 8601 format (e.g., '2024-01-23T14:00:00Z'). 4) Return a JSON object with: title (string), description (string), startDate (ISO 8601 string), endDate (ISO 8601 string), and location (string). 5) For duration-based events (like '1 hour'), calculate the endDate by adding the duration to startDate. 6) When a due date or deadline is mentioned, use it as the endDate and calculate startDate based on context (default to 23 hours and 59 minutes before if no duration given). Example output: {"title": "Project Deadline", "description": "Complete Q4 report", "startDate": "2024-01-23T13:00:00Z", "endDate": "2024-01-23T14:00:00Z", "location": "Office"}`
                 }, {
                     role: "user",
                     content: prompt
